@@ -1,0 +1,347 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0; /*将所有元素的外边距设置为"0"*/
+  padding: 0; /*将所有元素的内边距设置为"0"*/
+  box-sizing: border-box; /*当设置元素的宽度和高度时，内边距和边框将包含在指定的宽度和高度内*/
+  font-family: "Manrope", sans-serif; /*优先使用 "Manrope" 字体，如果没有就使用默认的无衬线字体。*/
+}
+
+/* START: General styles */
+.max-width {
+  @apply max-w-[1440px] mx-auto;
+  /*max-w-[1440px]: 宽度最多为 1440px。
+  mx-auto:在父容器内水平居中。*/
+}
+
+.padding-x {
+  @apply sm:px-16 px-6;
+  /*`sm:px-16`，这意味着在达到或超过指定的“小型”断点时（通常代表较小的屏幕尺寸），
+  将应用 `px-16` 类，给元素添加水平内边距。
+  而在其他情况下，则应用 `px-6` 类，给元素添加较小的水平内边距。*/
+}
+
+.padding-y {
+  @apply py-4;
+  /*`py-4` 会将元素的上下内边距设置为 `4rem`*/
+}
+
+.flex-center {
+  @apply flex items-center justify-center;
+  /*!*- `flex`: `.flex-center` 元素及其子元素能够使用弹性布局。*/
+  /*`items-center`: 确保元素的子元素在水平方向上居中对齐。*/
+  /*`justify-center`: 确保元素的子元素在垂直方向上居中对齐。*!*/
+
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+  /*- `flex`: `.flex-between` 元素及其子元素能够使用弹性布局。*/
+  /*- `justify-between`: 将弹性容器的子元素在主轴方向（水平方向）上均匀分布，
+  使得第一个子元素靠在容器的起始位置，最后一个子元素靠在容器的末尾位置，中间的子元素均匀分布。*/
+  /*- `items-center`: 它确保元素的子元素在垂直方向上居中对齐。*/
+}
+
+
+.custom-btn {
+  @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
+  /*- `flex`: 将元素设置为弹性容器，使其子元素能够使用弹性布局特性。*/
+  /*- `flex-row`: 将弹性容器的子元素设置为水平方向排列（这是默认的 `flex-direction`，但明确指定有助于理解）。*/
+  /*- `relative`: 设置元素的定位方式为相对定位，使其可以相对于其正常位置进行定位。*/
+  /*- `justify-center`: 将弹性容器的子元素在水平方向上居中对齐。*/
+  /*- `items-center`: 将弹性容器的子元素在垂直方向上居中对齐。*/
+  /*- `py-3`: 设置元素的上下内边距为 `3` 的间距单位。*/
+  /*- `px-6`: 设置元素的左右内边距为 `6` 的间距单位。*/
+  /*- `outline-none`: 移除元素的默认轮廓（通常是按钮和输入元素在聚焦时的蓝色外框）。*/
+}
+
+/* END: General styles */
+
+/* START: Hero styles */
+.hero {
+  @apply flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto;
+  /* `flex`: 将元素设置为弹性容器，使其子元素能够使用弹性布局特性。*/
+  /* `xl:flex-row`: 在 `xl` 尺寸（通常是超大屏幕，默认是 1280px 及以上）上，将弹性容器的子元素设置为水平方向排列。*/
+  /* `flex-col`: 在默认情况下（没有其他屏幕尺寸前缀时），将弹性容器的子元素设置为垂直方向排列。*/
+  /* `gap-5`: 设置弹性容器的子元素之间的间距为 `5` 的间距单位。*/
+  /* `relative`: 设置元素的定位方式为相对定位，使其可以相对于其正常位置进行定位。常用于在子元素中使用绝对定位。*/
+  /* `z-0`: 设置元素的 z-index 为 0，确保其在堆叠上下文中的正确位置。*/
+  /* `max-w-[1440px]`: 设置元素的最大宽度为 `1440px`，限制其在超大屏幕上的最大宽度。*/
+  /* `mx-auto`: 设置元素的水平外边距为 `auto`，使其在容器中水平居中对齐。*/
+}
+
+.hero__title {
+  @apply 2xl:text-[72px] sm:text-[64px] text-[50px] font-extrabold;
+  /* `2xl:text-[72px]`: 当屏幕尺寸达到 `2xl` 断点（通常是超大屏幕，默认是 1536px 及以上）时，设置文本大小为 72px。*/
+  /* `sm:text-[64px]`: 当屏幕尺寸达到 `sm` 断点（通常是小屏幕，默认是 640px 及以上）时，设置文本大小为 64px。*/
+  /* `text-[50px]`: 默认情况下（未达到任何断点），设置文本大小为 50px。*/
+  /* `font-extrabold`: 设置字体的粗细为 `extrabold`（额外粗）。*/
+}
+
+.hero__subtitle {
+  @apply text-[27px] text-black-100 font-light mt-5;
+  /* `text-[27px]`: 设置文本的字体大小为 27px。这是一个自定义的文本大小类。*/
+  /* `text-black-100`: 设置文本颜色为 `black-100`。这通常是一个自定义颜色类，表示某种特定的黑色。*/
+  /* `font-light`: 设置字体的粗细为 `light`，即字体较细。*/
+  /* `mt-5`: 设置元素的上外边距为 `5` 的间距单位。*/
+}
+
+.hero__image-container {
+  @apply xl:flex-[1.5] flex justify-end items-end w-full xl:h-screen;
+  /* `xl:flex-[1.5]`: 当屏幕尺寸达到 `xl` 断点（通常是大屏幕，默认是 1280px 及以上）时，
+  设置弹性容器子元素的弹性比例为 1.5。如果同一个容器中的其他弹性项目的增长比例为 1，
+  这个元素的增长速度将是它们的 1.5 倍。*/
+  /* `flex`: 将元素设置为弹性容器，使其子元素能够使用弹性布局特性。*/
+  /* `justify-end`: 在弹性容器中将子元素沿主轴（水平轴）对齐到末端。*/
+  /* `items-end`: 在弹性容器中将子元素沿交叉轴（垂直轴）对齐到末端。*/
+  /* `w-full`: 设置元素的宽度为 100%，即占据其父容器的全部宽度。*/
+  /* `xl:h-screen`: 当屏幕尺寸达到 `xl` 断点时，设置元素的高度为屏幕的高度。*/
+}
+
+.hero__image {
+  @apply relative xl:w-full w-[90%] xl:h-full h-[590px] z-0;
+  /* `relative`: 相对定位，使元素相对于其正常位置进行偏移。*/
+  /* `xl:w-full`: 在 `xl` 尺寸及以上的屏幕上，图像宽度为父容器的 100%。*/
+  /* `w-[90%]`: 在默认情况下（小于 `xl` 尺寸），图像宽度为父容器的 90%。*/
+  /* `xl:h-full`: 在 `xl` 尺寸及以上的屏幕上，图像高度为父容器的 100%。*/
+  /* `h-[590px]`: 在默认情况下（小于 `xl` 尺寸），图像高度为 590px。*/
+  /* `z-0`: 将图像的 z-index 设置为 0，表示其在堆叠顺序中不占优先级。*/
+}
+
+.hero__image-overlay {
+  @apply absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-hero-bg bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden;
+  /* `absolute`: 设置元素的定位为绝对定位*/
+  /* `xl:-top-24`: 当屏幕尺寸达到 `xl` 断点（通常是大屏幕，默认是 1280px 及以上）时，
+  设置元素的顶部位置为 `-6rem`（负24个单位的高度，1个单位通常为 `0.25rem`）。*/
+  /*`xl:-right-1/2`: 当屏幕尺寸达到 `xl` 断点时，设置元素的右侧位置为父容器宽度的 `-50%`。*/
+  /*`-right-1/4`: 默认情况下（未达到 `xl` 断点），设置元素的右侧位置为父容器宽度的 `-25%`。*/
+  /*`bg-hero-bg`: 设置元素的背景图像为 `bg-hero-bg`。这个类名是自定义的，通常需要在 Tailwind CSS 配置中定义相应的背景图像。*/
+  /*`bg-repeat-round`: 设置背景图像的重复方式为 `round`，即背景图像将重复，以完全填充元素的背景区域，并适当调整图像的大小。*/
+  /*`-z-10`: 设置元素的 `z-index` 为 `-10`。这意味着该元素将位于堆叠顺序的底层，很可能在所有其他元素的后面。*/
+  /*`w-full`: 设置元素的宽度为 100%（填满父容器的宽度）。*/
+  /*`xl:h-screen`: 当屏幕尺寸达到 `xl` 断点时，设置元素的高度为 100% 的视口高度（vh），即填满整个屏幕的高度。*/
+  /*`h-[590px]`: 默认情况下（未达到 `xl` 断点），设置元素的高度为 `590px`。这是一个自定义的高度值。*/
+  /* `overflow-hidden`: 设置元素的溢出内容为隐藏，即超出元素边界的内容将被裁剪，不会显示 。*/
+}
+
+/* END: Hero styles */
+
+/* START: Home styles */
+
+.home__text-container {
+  @apply flex flex-col items-start justify-start gap-y-2.5 text-black-100;
+}
+
+.home__filters {
+  @apply mt-12 w-full flex-between items-center flex-wrap gap-5;
+}
+
+.home__filter-container {
+  @apply flex justify-start flex-wrap items-center gap-2;
+}
+
+.home__cars-wrapper {
+  @apply grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14;
+}
+
+.home__error-container {
+  @apply mt-16 flex justify-center items-center flex-col gap-2;
+}
+
+/* END: Home styles */
+
+/* START: Car Card styles */
+.car-card {
+  @apply flex flex-col p-6 justify-center items-start text-black-100 bg-primary-blue-100 hover:bg-white hover:shadow-md rounded-3xl;
+}
+
+.car-card__content {
+  @apply w-full flex justify-between items-start gap-2;
+}
+
+.car-card__content-title {
+  @apply text-[22px] leading-[26px] font-bold capitalize;
+}
+
+.car-card__price {
+  @apply flex mt-6 text-[32px] leading-[38px] font-extrabold;
+}
+
+.car-card__price-dollar {
+  @apply self-start text-[14px] leading-[17px] font-semibold;
+}
+
+.car-card__price-day {
+  @apply self-end text-[14px] leading-[17px] font-medium;
+}
+
+.car-card__image {
+  @apply relative w-full h-40 my-3 object-contain;
+}
+
+.car-card__icon-container {
+  @apply flex group-hover:invisible w-full justify-between text-grey;
+}
+
+.car-card__icon {
+  @apply flex flex-col justify-center items-center gap-2;
+}
+
+.car-card__icon-text {
+  @apply text-[14px] leading-[17px];
+}
+
+.car-card__btn-container {
+  @apply hidden group-hover:flex absolute bottom-0 w-full z-10;
+}
+
+/* END: Car Card styles */
+
+/* START: Car Details styles */
+.car-details__dialog-panel {
+  @apply relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5;
+}
+
+.car-details__close-btn {
+  @apply absolute top-2 right-2 z-10 w-fit p-2 bg-primary-blue-100 rounded-full;
+}
+
+.car-details__main-image {
+  @apply relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg;
+}
+
+/* END: Car Details styles */
+
+/* START: Custom Filter styles */
+.custom-filter__btn {
+  @apply relative w-full min-w-[127px] flex justify-between items-center cursor-default rounded-lg bg-white py-2 px-3 text-left shadow-md sm:text-sm border;
+}
+
+.custom-filter__options {
+  @apply absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm;
+}
+
+/* END: Custom Filter styles */
+
+/* START: Footer styles */
+.footer {
+  @apply flex flex-col text-black-100  mt-5 border-t border-gray-100;
+  /*`flex`: 将元素的显示模式设置为弹性布局（flex）*/
+  /*`flex-col`: 将弹性容器的主轴方向设置为垂直方向，使得子元素垂直排列。*/
+  /*`text-black-100`:  设置元素内文本的颜色为黑色。*/
+  /*`mt-5`: 在垂直方向上添加顶部外边距，大小为 `mt-5` 类所定义的尺寸。*/
+  /*`border-t`: 在元素的顶部添加边框。*/
+  /*`border-gray-100`: 设置边框的颜色为灰色。*/
+
+}
+
+.footer__links-container {
+  @apply flex max-md:flex-col flex-wrap justify-between gap-5 sm:px-16 px-6 py-10;
+  /*`flex`: 将元素的显示模式设置为弹性布局（flex），使得子元素可以通过设置弹性属性来灵活地布局。*/
+  /*`max-md:flex-col`: 在达到 `max-md` 断点时（通常是中型屏幕，默认是 768px 及以上），
+  将元素的主轴方向设置为垂直方向，从而实现垂直排列的弹性布局。*/
+  /*`flex-wrap`: 允许弹性子项在必要时换行，以便它们可以在弹性容器内自动布局到多行。这样可以确保元素不会溢出其父容器。*/
+  /*`justify-between`: 在弹性容器的主轴上均匀分布弹性子项，使得首个子项位于容器的起始位置，
+  最后一个子项位于容器的末尾位置，同时剩余的子项等间距分布在容器内。*/
+  /*`gap-5`: 在弹性容器中设置子项之间的间距为 `5`（通常是 1.25rem）。*/
+  /*`sm:px-16` 和 `px-6`: 在达到 `sm` 断点时（通常是小型屏幕，默认是 640px 及以上）
+  设置水平方向的内边距为 `16`（通常是 4rem），在其他情况下设置水平方向的内边距为 `6`（通常是 1.5rem）。*/
+  /*`py-10`: 设置垂直方向的内边距为 `10`（通常是 2.5rem）。*/
+}
+
+.footer__rights {
+  @apply flex flex-col justify-start items-start gap-6;
+  /*`flex`: 将元素的显示模式设置为弹性布局（flex），使得子元素可以通过设置弹性属性来灵活地布局。*/
+  /*`flex-col`: 将弹性容器的主轴方向设置为垂直方向，使得子元素垂直排列。*/
+  /*`justify-start`: 在弹性容器的主轴上将子项左对齐，使得子项从容器的起始位置开始排列。*/
+  /*`items-start`: 在弹性容器的交叉轴上将子项顶部对齐，使得子项在交叉轴上从容器的起始位置开始排列。*/
+  /*`gap-6`: 设置子项之间的间距为 `6`（通常是 1.5rem）。*/
+}
+
+.footer__links {
+  @apply flex-1 w-full flex md:justify-end flex-wrap max-md:mt-10 gap-20;
+  /*`flex-1`: 将元素的弹性属性设置为 1，使其在弹性容器中占据剩余的可用空间。*/
+  /*`w-full`: 将元素的宽度设置为 100%，使其占据其父元素的全部宽度。*/
+  /*`flex`: 将元素的显示模式设置为弹性布局（flex）。*/
+  /*`md:justify-end`: 在达到 `md` 断点时（通常是中型屏幕，默认是 768px 及以上），将子项在弹性容器的主轴上右对齐。*/
+  /*`flex-wrap`: 允许弹性子项在必要时换行。*/
+  /*`max-md:mt-10`: 在达到 `max-md` 断点时（通常是中型屏幕，默认是 768px 及以上），
+  添加顶部外边距，大小为 `mt-10` 类所定义的尺寸。*/
+  /*`gap-20`:设置子项之间的间距为 `20`（通常是 5rem）。*/
+}
+
+.footer__link {
+  @apply flex flex-col gap-6 text-base min-w-[170px];
+  /*`flex`: 将元素的显示模式设置为弹性布局（flex）*/
+  /*`flex-col`: 将弹性容器的主轴方向设置为垂直方向，使得子元素垂直排列。*/
+  /*`gap-6`: 设置子元素之间的间距为 `6`（通常是 1.5rem）。*/
+  /*`text-base`: 将元素的文本大小设置为基本大小。*/
+  /*`min-w-[170px]`: 设置元素的最小宽度为 `170px`。*/
+}
+
+.footer__copyrights {
+  @apply flex justify-between items-center flex-wrap mt-10 border-t border-gray-100 sm:px-16 px-6 py-10;
+  /*`flex`: 将元素的显示模式设置为弹性布局（flex）。*/
+  /*`justify-between`: 在弹性容器的主轴上将子项均匀分布，使得首个子项位于容器的起始位置，最后一个子项位于容器的末尾位置，同时剩余的子项等间距分布在容器内。*/
+  /*`items-center`: 在弹性容器的交叉轴上将子项居中对齐，使得子项在交叉轴上垂直居中显示。*/
+  /*`flex-wrap`: 允许弹性子项在必要时换行，以便它们可以在弹性容器内自动布局到多行。这样可以确保元素不会溢出其父容器。*/
+  /*`mt-10`: 设置顶部外边距为 `10`（通常是 2.5rem），以增加元素与上方内容之间的垂直间距。*/
+  /*`border-t` 添加顶部边框。*/
+  /*`border-gray-100` 设置边框颜色为灰色。*/
+  /*`sm:px-16 px-6 py-10`: 在达到 `sm` 断点时（通常是小型屏幕，默认是 640px 及以上），
+  设置水平方向的内边距为 `16`（通常是 4rem），在其他情况下设置水平方向的内边距为 `6`（通常是 1.5rem），
+  垂直方向的内边距为 `10`（通常是 2.5rem）。*/
+}
+
+.footer__copyrights-link {
+  @apply flex-1 flex sm:justify-end justify-center max-sm:mt-4 gap-10;
+  /*`flex-1`: 将元素的弹性属性设置为 1，使其在弹性容器中占据剩余的可用空间。*/
+  /*`flex`: 将元素的显示模式设置为弹性布局（flex），使得其子元素可以通过设置弹性属性来灵活地布局。*/
+  /*`sm:justify-end`: 在达到 `sm` 断点时（通常是小型屏幕，默认是 640px 及以上），
+  将子项在弹性容器的主轴上右对齐。*/
+  /*`justify-center`: 在弹性容器的主轴上将子项居中对齐，使得子项在主轴上水平居中显示。*/
+  /*`max-sm:mt-4`: 在达到 `max-sm` 断点时（通常是小型屏幕，默认是 640px 及以下），
+  设置顶部外边距为 `4`（通常是 1rem）。*/
+  /*`gap-10`: 设置子项之间的间距为 `10`（通常是 2.5rem）。*/
+}
+
+/* END: Footer styles */
+
+/* START: searchbar styles */
+.searchbar {
+  @apply flex items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl;
+
+}
+
+.searchbar__item {
+  @apply flex-1 max-sm:w-full flex justify-start items-center relative;
+}
+
+.searchbar__input {
+  @apply w-full h-[48px] pl-12 p-4 bg-light-white rounded-r-full max-sm:rounded-full outline-none cursor-pointer text-sm;
+}
+
+/* END: searchbar styles */
+
+/* START: search manufacturer styles */
+.search-manufacturer {
+  @apply flex-1 max-sm:w-full flex justify-start items-center;
+}
+
+.search-manufacturer__input {
+  @apply w-full h-[48px] pl-12 p-4 rounded-l-full max-sm:rounded-full bg-light-white outline-none cursor-pointer text-sm;
+}
+
+.search-manufacturer__options {
+  @apply absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm;
+}
+
+.search-manufacturer__option {
+  @apply cursor-default select-none py-2 pl-10 pr-4;
+}
+
+/* END: search manufacturer styles */
